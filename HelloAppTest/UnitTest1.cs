@@ -1,5 +1,3 @@
-using System;
-using System.Collections.Generic;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Chrome;
@@ -15,13 +13,17 @@ namespace HelloAppTest
     public class UnitTest1
     {
         private static readonly string DriverDirectory = "C:\\seleniumDrivers2";
+        // Download drivers to your driver folder.
+        // Driver version must match your browser version.
+        // http://chromedriver.chromium.org/downloads
+
         private static IWebDriver _driver;
 
         [ClassInitialize]
         public static void Setup(TestContext context)
         {
-            // _driver = new ChromeDriver(DriverDirectory); // fast
-              _driver = new FirefoxDriver(DriverDirectory);  // slow
+              _driver = new ChromeDriver(DriverDirectory); // fast
+             // _driver = new FirefoxDriver(DriverDirectory);  // slow
              // _driver = new EdgeDriver(DriverDirectory); // times out ... not working
         }
 
