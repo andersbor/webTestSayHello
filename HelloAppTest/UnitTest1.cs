@@ -12,7 +12,7 @@ namespace HelloAppTest
     [TestClass]
     public class UnitTest1
     {
-        private static readonly string DriverDirectory = "C:\\seleniumDrivers2";
+        private static readonly string DriverDirectory = "C:\\webDrivers";
         // Download drivers to your driver folder.
         // Driver version must match your browser version.
         // http://chromedriver.chromium.org/downloads
@@ -34,9 +34,12 @@ namespace HelloAppTest
         }
 
         [TestMethod]
-        public void TestMethod1()
+        public void TestMethod()
         {
-            _driver.Navigate().GoToUrl("http://localhost:3000/");
+            //string url = "file:///C:/andersb/javascript/sayhelloVue3/index.htm";
+            string url ="https://anbo-sayhello.azurewebsites.net/";
+            // string url = "http://localhost:3000/";
+            _driver.Navigate().GoToUrl(url);
             Assert.AreEqual("Say Hello", _driver.Title);
 
             IWebElement inputElement = _driver.FindElement(By.Id("inputField"));
@@ -49,8 +52,6 @@ namespace HelloAppTest
             string text = outputElement.Text;
 
             Assert.AreEqual("Hello Anders", text);
-
-
         }
     }
 }
