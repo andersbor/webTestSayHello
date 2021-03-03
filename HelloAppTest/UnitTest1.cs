@@ -23,7 +23,7 @@ namespace HelloAppTest
         public static void Setup(TestContext context)
         {
               _driver = new ChromeDriver(DriverDirectory); // fast
-             // _driver = new FirefoxDriver(DriverDirectory);  // slow
+              //_driver = new FirefoxDriver(DriverDirectory);  // slow
              // _driver = new EdgeDriver(DriverDirectory); // times out ... not working
         }
 
