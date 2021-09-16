@@ -22,9 +22,9 @@ namespace HelloAppTest
         [ClassInitialize]
         public static void Setup(TestContext context)
         {
-              _driver = new ChromeDriver(DriverDirectory); // fast
-              //_driver = new FirefoxDriver(DriverDirectory);  // slow
-             // _driver = new EdgeDriver(DriverDirectory); // times out ... not working
+            //_driver = new ChromeDriver(DriverDirectory); // fast
+            _driver = new FirefoxDriver(DriverDirectory);  // slow
+            //_driver = new EdgeDriver(DriverDirectory); //  not working ...
         }
 
         [ClassCleanup]
@@ -37,9 +37,10 @@ namespace HelloAppTest
         public void TestMethod()
         {
             //string url = "file:///C:/andersb/javascript/sayhelloVue3/index.htm";
-            string url ="https://anbo-sayhello.azurewebsites.net/";
-            // string url = "http://localhost:3000/";
+            string url = "https://anbo-sayhello.azurewebsites.net/";
+            // string url = "http://localhost:5500/index.htm";
             _driver.Navigate().GoToUrl(url);
+
             Assert.AreEqual("Say Hello", _driver.Title);
 
             IWebElement inputElement = _driver.FindElement(By.Id("inputField"));
