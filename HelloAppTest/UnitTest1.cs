@@ -5,7 +5,7 @@ using OpenQA.Selenium.Edge;
 using OpenQA.Selenium.Firefox;
 using OpenQA.Selenium.IE;
 using OpenQA.Selenium.Support.UI;
-// NuGet packages must be updated to at least 3.141
+// NuGet packages must be updated to at least version 3.141
 
 namespace HelloAppTest
 {
@@ -22,9 +22,10 @@ namespace HelloAppTest
         [ClassInitialize]
         public static void Setup(TestContext context)
         {
-            _driver = new ChromeDriver(DriverDirectory); // fast
+            //_driver = new ChromeDriver(DriverDirectory); // fast
             //_driver = new FirefoxDriver(DriverDirectory);  // slow
-            //_driver = new EdgeDriver(DriverDirectory); //  not working ...
+            _driver = new EdgeDriver(DriverDirectory); //  fast
+                 // driver file must be renamed to MicrosoftWebDriver.exe
         }
 
         [ClassCleanup]
@@ -38,7 +39,7 @@ namespace HelloAppTest
         {
             string url = "file:///C:/andersb/javascript/sayhelloVue3/index.htm";
             //string url = "https://anbo-sayhello.azurewebsites.net/";
-            // string url = "http://localhost:5500/index.htm";
+             //string url = "http://localhost:5502/index.htm";
             _driver.Navigate().GoToUrl(url);
 
             Assert.AreEqual("Say Hello", _driver.Title);
